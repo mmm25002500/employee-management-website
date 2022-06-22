@@ -1,0 +1,26 @@
+body {
+	background: #eee;
+}
+table {
+	border: 0;
+	border-collapse: collapse;
+	border-radius: 8px;
+	width: 100%;
+}
+thead tr td{
+	border: solid 1px #5ceffe;
+	padding: 16px 8px;
+	color: #a900ff;
+}
+td {
+	border: solid 1px #5ceffe;
+	text-align: center;
+	padding: 8px;
+	color: #757575;
+}
+input {
+	width: 20%;
+}
+button {
+	width: 20%;
+}

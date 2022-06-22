@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>員工管理系統</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+	<div style="text-align: center;color: red;">
+		<h1>員工管理系統</h1>
+	</div>
+
+	<div id="app">
+		<center>
+			員工姓名: <input type="text" placeholder="請輸入" v-model="employee_name"><br>
+			員工薪資: <input type="text" placeholder="請輸入員工薪資" v-model="employee_salary" oninput = "value=value.replace(/[^\d]/g,'')"><br>
+			員工部門: <input type="text" placeholder="請輸入員工部門" v-model="employee_department"><br>
+			員工職位: <input type="text" placeholder="請輸入員工職位" v-model="employee_position"><br>
+			<template v-if="btn_index == 0 ">
+				<button @click="add_employee()">{{submit_btn[btn_index]}}</button>
+			</template>
+
+			<template v-else-if="btn_index == 1">
+				<button @click="edit_employee([],'save')">{{submit_btn[btn_index]}}</button>
+			</template>
+			
+		</center>
+		<table border="1">
+			<thead>
+				<tr>
+					<td>員工姓名</td>
+					<td>員工薪資</td>
+					<td>員工部門</td>
+					<td>員工職位</td>
+					<td>其他操作</td>
+				</tr>
+			</thead>
+			<tr v-for="person in employee">
+				<td> {{ person.name }} </td>
+				<td> {{ person.salary }} </td>
+				<td> {{ person.department }} </td>
+				<td> {{ person.position }} </td>
+				<td><a href="#" @click.prevent="del_employee(person)">刪除</a>
+					<a href="#" @click.prevent="edit_employee(person,'edit')">編輯</a>
+				</td>
+			</tr>
+		</ul>
+	</div>
+			
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.0/vue.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+</body>
+</html>
